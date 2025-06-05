@@ -1,4 +1,4 @@
 let
   pkgs = import <nixpkgs> {};
 in
-  pkgs.callPackage ./aces-factorio-headless.nix {}
+  pkgs.callPackage ./default.nix {}
