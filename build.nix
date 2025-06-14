@@ -3,14 +3,28 @@ let
   pkgs = import <nixpkgs> {};
 in
   pkgs.callPackage ./default.nix {
+    # World configuration
+    mapSeed = 42424242; # Set Seed for world generation
+
+    # Resource settings - broken for test purposes
+    oreSettings = {
+      coal = { frequency = 10; size = 10; richness = 10; };
+      stone = { frequency = 10; size = 10; richness = 10; };
+      copper-ore = { frequency = 10; size = 10; richness = 10; };
+      iron-ore = { frequency = 10; size = 10; richness = 10; };
+      uranium-ore = { frequency = 10; size = 10; richness = 10; }; 
+      crude-oil = { frequency = 10; size = 10; richness = 10; };
+    };
+    
+
     # Basic server info
-    serverName = "My Awesome Factorio Server";
-    description = "A modded server for friends and fun";
-    tags = [ "modded" "friendly" "eu" ];
+    serverName = "ACES Server";
+    description = "A server for friends and fun";
+    tags = [ "aces" ];
     
     # Player settings
-    maxPlayers = 15;
-    gamePassword = "secret123";
+    maxPlayers = 25; # Maximum number of players allowed
+    gamePassword = "ace42"; # Password for joining the server
     requireUserVerification = true;
     ignorePlayerLimitForReturningPlayers = true;
     
@@ -35,8 +49,8 @@ in
     allowCommands = "admins-only";
     autosaveInterval = 5;  # Save every 5 minutes
     autosaveSlots = 10;
-    afkAutokickInterval = 30;  # Kick after 30 minutes AFK
-    autoPause = true;  # Don't pause when empty
+    afkAutokickInterval = 15;  # Kick after 15 minutes AFK
+    autoPause = true;  # pause when empty
     autoPauseWhenPlayersConnect = false;
     onlyAdminsCanPauseTheGame = true;
     
